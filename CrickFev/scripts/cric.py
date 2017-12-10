@@ -4,7 +4,6 @@ from lscore import *
 import tkinter.messagebox
 
 def leftclick(ch):
-	
 	tkinter.messagebox.showinfo('Live Score',score[ch])
    
 
@@ -16,7 +15,8 @@ for i in range(n):
 	matches[i]=str(tableHeads[i].h2.text)
 
 for i in range(m):
-    score[i]=tableData[i].section.text	
+    score[i]=tableData[i].section.text
+    print(score[i])	
 
 
 
@@ -26,9 +26,9 @@ class Buttons:
 		getLiveEvents()
 		frame=Frame(master)
 		frame.pack()
-		ch=IntVar()
-		#label=Label(frame,text="Live Events",fg="red",sticky=E)
-		#label.grid()
+		ch= int()
+		label=Label(frame,text="Live Events",fg="red")
+		label.grid()
 		for i in range(n):
 			button=Button(frame,text=matches[i],fg="blue", )			
 			button.grid(columnspan=5,sticky=W)
@@ -38,20 +38,11 @@ class Buttons:
 
 		E1=Entry(frame,bd=5,width=3,textvariable=ch)
 		E1.grid()
-		enter=Button(frame,text="Enter",fg="green",bg="violet",command= lambda: leftclick(i))
+		print(E1.get())
+		enter=Button(frame,text="Enter",fg="green",bg="violet",command=lambda:leftclick(ch))
 		enter.grid()	
 		
-        
-        
-
-             
-        
-
-
-  
-
-
-
+            
 root = Tk()
 
 b = Buttons(root)
